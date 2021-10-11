@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>MyFirstSite</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        function readInt() {
+            var number = parseInt(document.getElementById("userAnswer").value);
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < number; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            alert(result);
+        }
+    </script>
+</head>
+
+
+
+<body>
+
+    <div class="content">
+
+        <div class="header">
+            <a href="index.html"> Main </a>
+            <a href="game.html"> Game </a>
+            <a href="riddles.html"> Riddles </a>
+        </div>
+
+        <div class="contentWrap">
+            <div class="content">
+                <div class="center">
+
+                    <h1>Генератор случайных паролей</h1>
+                    <div class="box">
+
+                        <input type="number" id="userAnswer">
+                        <br>
+                        <a href="#" onClick="readInt();" id="button">Введите длину пароля</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        CopyRight &copy; McMagadan
+    </div>
+</body>
+
+</html>

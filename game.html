@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>MyFirstSite</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        var answer = parseInt(Math.random() * 100);
+        var tryCount = 0;
+        var maxTryCount = 8;
+        var numGamer;
+
+        function readInt() {
+            var number = document.getElementById("userAnswer").value;
+            return parseInt(number);
+            // return +document.getElementById("userAnswer").value;
+        }
+
+        function write(text) {
+            document.getElementById("info").innerHTML = text;
+        }
+
+        function hide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function guess() {
+            tryCount++;
+            if (((tryCount / 2) - (tryCount / 2).toFixed(0)) == 0) {
+                numGamer = 2;
+            } else {
+                numGamer = 1;
+            }
+            var userAnswer = readInt();
+            if (userAnswer == answer) {
+                write("<b>Поздравляю, вы угадали!</b>Победил игрок № " + numGamer);
+                hide("button");
+                hide("userAnswer");
+            } else if (tryCount >= maxTryCount) {
+                write("Вы проиграли<br>Правильный ответ: " + answer);
+                hide("button");
+                hide("userAnswer");
+            } else if (userAnswer > answer) {
+                write("Вы ввели слишком большое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+            } else if (userAnswer < answer) {
+                write("Вы ввели слишком маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="content">
+
+        <div class="header">
+            <a href="index.html">Main</a>
+            <a href="riddles.html">Riddles</a>
+            <a href="Generator.html">Generator<br>passwords</a>
+        </div>
+
+        <div class="contentWrap">
+            <div class="content">
+                <div class="center">
+
+                    <h1>Угадайте число</h1>
+                    <p id="info">Играют два игрока, ходят по очереди. Загадывается число. Каждый игрок в своей попытке вводит целое число от 1 до 5, которое вычитается из изначально загаданного. Выигрывает тот игрок, который отгадает число.</p>
+                    <div class="box">
+
+                        <input type="text" id="userAnswer">
+                        <br>
+                        <a href="#" onClick="guess();" id="button">Введите число</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        CopyRight &copy; McMagadan
+        <div>
+</body>
+
+</html>
